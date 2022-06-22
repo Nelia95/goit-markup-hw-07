@@ -30,6 +30,7 @@
   margin-left: auto;
 }
 .hero-button {
+  display: flex;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
@@ -41,4 +42,11 @@
   padding: 10px 32px;
   margin-right: auto;
   margin-left: auto;
+  align-items: center;
+  text-align: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
