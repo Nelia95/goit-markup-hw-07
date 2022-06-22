@@ -10,9 +10,7 @@
   transition: opacity(0) visibility(hidden);
   pointer-events: none;
 }
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0) rotate(0);
-}
+
 .modal {
   position: absolute;
   width: 528px;
@@ -30,6 +28,9 @@
   padding-bottom: 40px;
   padding-left: 41px;
   padding-right: 39px;
+  .backdrop.is-hidden & {
+    transform: translate(-50%, -50%) scale(0) rotate(0);
+  }
 }
 .modal-button {
   position: absolute;
@@ -45,30 +46,26 @@
   transition-property: border, fill;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    border: 1px solid var(--accent-color);
+    fill: #2196f3;
+  }
 }
 .modal-icon {
   width: 11px;
   height: 11px;
 }
-.modal-button:hover {
-  border: 1px solid var(--accent-color);
-  fill: #2196f3;
-}
+
 .modal-title {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
+  @include font(20px, 700, 1.15, null);
   text-align: center;
-  letter-spacing: 0.03em;
   color: var(--title-text-color);
   justify-content: center;
   margin-bottom: 12px;
 }
 .modal-label {
   display: block;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.01em;
+  @include font(12px, null, 1.17, 0.01em);
   color: rgba(117, 117, 117, 1);
   margin-bottom: 4px;
 }
@@ -83,19 +80,20 @@
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 42px;
+  &:focus {
+    outline: none;
+    border-color: rgba(33, 150, 243, 1);
+  }
 }
-.modal-input:focus {
-  outline: none;
-  border-color: rgba(33, 150, 243, 1);
-}
-.modal-input:focus + .icon {
-  fill: rgba(33, 150, 243, 1);
-}
+
 .icon {
   position: absolute;
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
+  .modal-input:focus + & {
+    fill: rgba(33, 150, 243, 1);
+  }
 }
 /* .modal-icon {
   width: 18px;
@@ -110,29 +108,23 @@
   resize: none;
   padding: 12px 16px;
   outline: none;
-}
-.modal-text::placeholder {
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
-}
-
-.modal-text:focus {
-  border-color: rgba(33, 150, 243, 1);
+  &::placeholder {
+    @include font(14px, null, 1.14, 0.01em);
+    color: rgba(117, 117, 117, 0.5);
+  }
+  &:focus {
+    border-color: rgba(33, 150, 243, 1);
+  }
 }
 
 .form-button {
   background-color: rgba(24, 140, 232, 1);
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
+  @include font(16px, 700, 1.88, 0.06em);
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 0.06em;
   color: var(--primary-bg-color);
   padding-top: 10px;
   padding-bottom: 10px;
@@ -147,13 +139,14 @@
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    outline: transparent;
+  }
 }
-.form-button:hover,
-.form-button:focus {
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  outline: transparent;
-}
+
 /* .checkbox {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -162,9 +155,7 @@
 .checkbox-label {
   display: flex;
   position: relative;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
+  @include font(14px, null, 1.71, null);
   padding-left: 23px;
   margin-bottom: 30px;
 }
@@ -183,12 +174,12 @@
   left: 0;
   transform: translateY(25%);
   border-radius: 4px;
-}
-.checkbox:checked + .checkbox-icon {
-  background-image: url(../images/check.svg);
-  background-color: rgba(33, 150, 243, 1);
-  background-size: contain;
-  background-origin: border-box;
-  border-color: rgba(33, 150, 243, 1);
-  background-repeat: no-repeat;
+  .checkbox:checked + & {
+    background-image: url(../images/check.svg);
+    background-color: rgba(33, 150, 243, 1);
+    background-size: contain;
+    background-origin: border-box;
+    border-color: rgba(33, 150, 243, 1);
+    background-repeat: no-repeat;
+  }
 }

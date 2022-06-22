@@ -8,9 +8,7 @@
   display: block;
   color: var(--accent-color);
   font-family: 'Raleway';
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 1.19;
+  @include font(26px, 700, 1.19, null);
   text-decoration: none;
   margin-bottom: 20px;
 }
@@ -19,8 +17,7 @@
 }
 .footer-item > .link {
   font-style: normal;
-  font-size: 14px;
-  line-height: 1.71;
+  @include font(14px, null, 1.71, null);
 }
 .contact {
   color: rgba(255, 255, 255, 0.6);
@@ -38,10 +35,7 @@
 .form-title {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
+  @include font(14px, 700, 1.14, 0.03em);
   text-transform: uppercase;
   color: var(--primary-bg-color);
   align-items: center;
@@ -65,9 +59,9 @@
   width: 44px;
   height: 44px;
   margin-right: 10px;
-}
-.form-item:last-child {
-  margin-right: 0;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .form-link {
@@ -82,20 +76,19 @@
   transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: #2196f3;
+  }
 }
-.form-link:hover,
-.form-link:focus {
-  background-color: #2196f3;
-}
+
 .subscribe {
 }
 .subscribe-container {
   display: flex;
 }
 .subscribe-title {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
+  @include font(14px, 700, 1.14, null);
   text-transform: uppercase;
   color: var(--primary-bg-color);
   margin-bottom: 20px;
@@ -119,13 +112,10 @@
   padding-bottom: 10px;
   padding-left: 29px;
   padding-right: 28px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
+  @include font(16px, 700, 1.88, 0.06em);
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 0.06em;
   border-radius: 4px;
   border: transparent;
   cursor: pointer;
@@ -133,17 +123,17 @@
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    outline: transparent;
+  }
 }
 
 /* .subscribe-button:focus-within {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   outline: transparent;
 } */
-.subscribe-button:hover,
-.subscribe-button:focus {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  outline: transparent;
-}
 
 .subscribe-icon {
   margin-left: 10px;
