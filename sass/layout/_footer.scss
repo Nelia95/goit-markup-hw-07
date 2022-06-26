@@ -103,6 +103,10 @@
   padding-left: 16px;
   margin-right: 12px;
   width: 358px;
+  outline: none;
+  &:focus {
+    border: 1px solid #2196f3;
+  }
 }
 
 .subscribe-button {
